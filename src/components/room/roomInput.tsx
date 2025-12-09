@@ -4,10 +4,10 @@ import { useRoomStore } from "@/app/store/roomStore";
 import { useGetUsername } from "@/hooks/useGetUsername";
 
 export const RoomInput = () => {
-  const { sendMessage, isPending } = useSendMessage();
   const [input, setInput] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const roomId = useRoomStore((state) => state.roomId);
+  const { sendMessage, isPending } = useSendMessage();
   const { username } = useGetUsername();
 
   const handleSendMessage = () => {

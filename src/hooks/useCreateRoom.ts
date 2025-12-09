@@ -1,8 +1,10 @@
 import { client } from "@/lib/client";
 import { useMutation } from "@tanstack/react-query";
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
-export const useCreateRoom = (router: AppRouterInstance) => {
+import { useRouter } from "next/navigation";
+
+export const useCreateRoom = () => {
+  const router = useRouter();
   const { mutate: createRoom } = useMutation({
     mutationFn: async () => {
       const res = await client.room.create.post();

@@ -1,6 +1,6 @@
 import { useRoomStore } from "@/app/store/roomStore";
 import { useDeleteRoom } from "@/hooks/useDeleteRoom";
-import { useGetRemainingTime } from "@/hooks/useGetRemainingTime";
+import { useHandleRemainingTime } from "@/hooks/useHandleRemainingTime";
 import { useState } from "react";
 
 const formatTimeRemaining = (seconds: number) => {
@@ -10,9 +10,9 @@ const formatTimeRemaining = (seconds: number) => {
 };
 
 export const RoomHeader = () => {
-  const roomId = useRoomStore((state) => state.roomId);
-  const { timeRemaining } = useGetRemainingTime(roomId);
   const [copyStatus, setCopyStatus] = useState<"copy" | "copied">("copy");
+  const roomId = useRoomStore((state) => state.roomId);
+  const { timeRemaining } = useHandleRemainingTime(roomId);
   const { destroyRoom } = useDeleteRoom();
 
   const copyLink = () => {

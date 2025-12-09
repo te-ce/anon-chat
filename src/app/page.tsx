@@ -1,12 +1,8 @@
-"use client";
-
 import { CreateRoom } from "@/components/createRoom";
 import { ErrorBanner } from "@/components/ErrorBanner";
-import { useRouter } from "next/navigation";
 import { Suspense } from "react";
 
 export default function Home() {
-  const router = useRouter();
   return (
     <Suspense>
       <main className="flex h-screen w-screen flex-col items-center justify-center gap-8 p-4">
@@ -19,7 +15,7 @@ export default function Home() {
             A private, self-destructing chat room.
           </p>
         </header>
-        <CreateRoom router={router} />
+        <CreateRoom />
       </main>
     </Suspense>
   );

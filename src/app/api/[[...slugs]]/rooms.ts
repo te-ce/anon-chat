@@ -4,8 +4,7 @@ import { nanoid } from "nanoid";
 import { authMiddleware } from "./auth";
 import z from "zod";
 import { realtime } from "@/lib/realtime";
-
-const ROOM_TTL_SECONDS = 10 * 60;
+import { ROOM_TTL_SECONDS } from "@/app/util/consts";
 
 export const rooms = new Elysia({ prefix: "/room" })
   .post("/create", async () => {

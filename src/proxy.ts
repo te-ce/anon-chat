@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { redis } from "./lib/redis";
 import { nanoid } from "nanoid";
+import { ERROR_CODE } from "./app/util/consts";
 
 export const proxy = async (req: NextRequest) => {
   const pathname = req.nextUrl.pathname;
@@ -14,7 +15,9 @@ export const proxy = async (req: NextRequest) => {
   );
 
   if (!room) {
-    return NextResponse.redirect(new URL("/?error=room-not-found", req.url));
+    return NextResponse.redirect(
+      new URL(`/?error=${ERROR_CODE.ROOM_NOT_FOUND}`, req.url),
+    );
   }
 
   const existingToken = req.cookies.get("x-auth-token")?.value;
@@ -24,7 +27,9 @@ export const proxy = async (req: NextRequest) => {
   }
 
   if (room.connected.length >= 2) {
-    return NextResponse.redirect(new URL("/?error=room-full", req.url));
+    return NextResponse.redirect(
+      new URL(`/?error=${ERROR_CODE.ROOM_FULL}`, req.url),
+    );
   }
 
   const response = NextResponse.next();

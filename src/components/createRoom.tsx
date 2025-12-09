@@ -2,11 +2,10 @@
 
 import { useCreateRoom } from "@/hooks/useCreateRoom";
 import { useGetUsername } from "@/hooks/useGetUsername";
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
-export const CreateRoom = ({ router }: { router: AppRouterInstance }) => {
+export const CreateRoom = () => {
   const { username } = useGetUsername();
-  const { createRoom } = useCreateRoom(router);
+  const { createRoom } = useCreateRoom();
 
   return (
     <div className="w-full max-w-md border border-zinc-800 bg-zinc-900/50 p-6 backdrop-blur-md">

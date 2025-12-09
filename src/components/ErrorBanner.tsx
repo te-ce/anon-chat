@@ -1,11 +1,14 @@
+"use client";
+
+import { ERROR_CODE } from "@/app/util/consts";
 import { useSearchParams } from "next/navigation";
 
 export const ErrorBanner = () => {
   const searchParams = useSearchParams();
   const wasDestroyed = searchParams.get("destroyed") === "true";
   const error = searchParams.get("error");
-  const roomNotFound = error === "room-not-found";
-  const roomFull = error === "room-full";
+  const roomNotFound = error === ERROR_CODE.ROOM_NOT_FOUND;
+  const roomFull = error === ERROR_CODE.ROOM_FULL;
 
   return (
     <>

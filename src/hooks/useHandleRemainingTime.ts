@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export const useGetRemainingTime = (roomId: string) => {
+export const useHandleRemainingTime = (roomId: string) => {
   const router = useRouter();
   const [timeRemaining, setTimeRemaining] = useState<number | null>(null);
 
