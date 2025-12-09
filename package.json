@@ -10,8 +10,8 @@
     "format": "npx prettier . --write",
     "prettier": "prettier . --check",
     "prettier:fix": "prettier . --write --log-level=warn",
-    "eslint": "next lint . --ext .js,.jsx,.ts,.tsx ",
-    "eslint:fix": "next lint . --fix --ext .js,.jsx,.ts,.tsx ",
+    "eslint": "eslint . --ext .js,.jsx,.ts,.tsx ",
+    "eslint:fix": "eslint . --fix --ext .js,.jsx,.ts,.tsx ",
     "tsc:lint": "tsc --noemit"
   },
   "dependencies": {
