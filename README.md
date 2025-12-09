@@ -2,10 +2,11 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 # Features
 
-- [ ] Self-destructing Chat Rooms (per TTL or manually by user)
-- [ ] 1:1 limited conversations
-- [ ] Redis backend
-- [ ] Next frontend
+- Next frontend
+- Self-destructing Chat Rooms (per TTL or manually by user)
+- 1:1 limited conversations
+- 'Realtime' chat functionality with Redis Streams and Pub/Sub (Upstash Realtime)
+- Elysia backend using Upstash Redis and Realtime
 
 # Tech Stack
 
@@ -13,7 +14,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 - Tailwind CSS
 - TypeScript
 - Elysia
-- Redis (Upstash)
+- Redis (Upstash) with Streams and Pub/Sub (Upstash Realtime)
 - Tanstack Query
 - Zod
 
