@@ -5,7 +5,7 @@ import { useUsername } from "@/hooks/useGetUsername";
 
 export const CreateRoom = () => {
   const { username } = useUsername();
-  const createRoom = useCreateRoom();
+  const { createRoom } = useCreateRoom();
 
   return (
     <div className="border border-zinc-800 bg-zinc-900/50 p-6 backdrop-blur-md w-full max-w-md">

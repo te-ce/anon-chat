@@ -1,5 +1,12 @@
+import { client } from "@/lib/client";
+import { useMutation } from "@tanstack/react-query";
+
 export const useCreateRoom = () => {
-  return () => {
-    console.log("Creating room");
-  };
+  const { mutate: createRoom } = useMutation({
+    mutationFn: async () => {
+      const res = await client.room.create.post();
+    },
+  });
+
+  return { createRoom };
 };
