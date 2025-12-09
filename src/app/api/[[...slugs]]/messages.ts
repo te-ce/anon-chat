@@ -56,9 +56,9 @@ export const messages = new Elysia({ prefix: "/messages" })
       );
 
       return {
-        messages: messages.map((m) => ({
-          ...m,
-          token: m.token === auth.token ? auth.token : undefined,
+        messages: messages.map((message) => ({
+          ...message,
+          token: message.token === auth.token ? auth.token : undefined,
         })),
       };
     },

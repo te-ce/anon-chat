@@ -10,8 +10,8 @@ const Page = () => {
   const params = useParams();
   const roomId = params.roomId as string;
   const setRoomId = useRoomStore((state) => state.setRoomId);
-
   setRoomId(roomId);
+
   return (
     <main className="flex h-screen max-h-screen flex-col overflow-hidden">
       <RoomHeader />
