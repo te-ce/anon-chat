@@ -17,6 +17,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 - Redis (Upstash) with Streams and Pub/Sub (Upstash Realtime)
 - Tanstack Query
 - Zod
+- date-fns
 
 # Challenges
 
