@@ -58,4 +58,4 @@ export const ANIMALS = [
   "Bee",
 ];
 
-export const USERNAME_STORAGE_KEY = "vapor-chat-username";
+export const USERNAME_STORAGE_KEY = "anon-chat-username";

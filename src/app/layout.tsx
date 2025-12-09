@@ -9,7 +9,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vapor Chat",
+  title: "Anon Chat",
   description:
     "Your chat for 1:1 conversations with built-in self-destruct functionality",
 };
