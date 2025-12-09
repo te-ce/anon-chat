@@ -1,5 +1,6 @@
 import { nanoid } from "nanoid";
 import { useEffect, useState } from "react";
+
 const ANIMALS = [
   "Lion",
   "Tiger",
@@ -60,7 +61,7 @@ const generateUsername = () => {
   return `anonymous-${animal}-${id}`;
 };
 
-export const useUsername = () => {
+export const useGetUsername = () => {
   const [username, setUsername] = useState("");
 
   useEffect(() => {

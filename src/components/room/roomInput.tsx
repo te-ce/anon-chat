@@ -1,12 +1,15 @@
 import { useRef, useState } from "react";
+import { useSendMessage } from "@/hooks/useSendMessage";
+import { useRoomStore } from "@/app/store/roomStore";
+import { useGetUsername } from "@/hooks/useGetUsername";
 
 export const RoomInput = () => {
+  const { sendMessage, isPending } = useSendMessage();
   const [input, setInput] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
+  const roomId = useRoomStore((state) => state.roomId);
+  const { username } = useGetUsername();
 
-  const sendMessage = (message: { text: string }) => {
-    // TODO: Implement send message
-  };
   return (
     <div className="border-t border-zinc-800 bg-zinc-900/30 p-4">
       <div className="flex gap-4">
@@ -20,7 +23,7 @@ export const RoomInput = () => {
             value={input}
             onKeyDown={(e) => {
               if (e.key === "Enter" && input.trim()) {
-                sendMessage({ text: input });
+                sendMessage({ text: input, roomId, username });
                 inputRef.current?.focus();
               }
             }}
@@ -32,7 +35,7 @@ export const RoomInput = () => {
 
         <button
           onClick={() => {
-            sendMessage({ text: input });
+            sendMessage({ text: input, roomId, username });
             inputRef.current?.focus();
           }}
           disabled={!input.trim()}

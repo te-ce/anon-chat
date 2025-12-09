@@ -1,11 +1,11 @@
 "use client";
 
 import { useCreateRoom } from "@/hooks/useCreateRoom";
-import { useUsername } from "@/hooks/useGetUsername";
+import { useGetUsername } from "@/hooks/useGetUsername";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 export const CreateRoom = ({ router }: { router: AppRouterInstance }) => {
-  const { username } = useUsername();
+  const { username } = useGetUsername();
   const { createRoom } = useCreateRoom(router);
 
   return (

@@ -1,8 +1,5 @@
+import { useRoomStore } from "@/app/store/roomStore";
 import { useState } from "react";
-
-interface RoomHeaderProps {
-  roomId: string;
-}
 
 const formatTimeRemaining = (seconds: number) => {
   const mins = Math.floor(seconds / 60);
@@ -10,9 +7,10 @@ const formatTimeRemaining = (seconds: number) => {
   return `${mins}:${secs.toString().padStart(2, "0")}`;
 };
 
-export const RoomHeader = ({ roomId }: RoomHeaderProps) => {
+export const RoomHeader = () => {
   const [timeRemaining, setTimeRemaining] = useState<number>(23);
   const [copyStatus, setCopyStatus] = useState<"copy" | "copied">("copy");
+  const roomId = useRoomStore((state) => state.roomId);
 
   const copyLink = () => {
     navigator.clipboard.writeText(`${window.location.origin}/room/${roomId}`);
