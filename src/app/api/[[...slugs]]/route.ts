@@ -7,11 +7,7 @@ const ROOM_TTL_SECONDS = 10 * 60;
 const rooms = new Elysia({ prefix: "/room" }).post("/create", async () => {
   const roomId = nanoid();
 
-  await redis.hset(`meta:${roomId}`, {
-    id: roomId,
-    connected: [],
-    createdAt: new Date(),
-  });
+  await redis.hset(`meta:${roomId}`, { connected: [], createdAt: new Date() });
 
   await redis.expire(`meta:${roomId}`, ROOM_TTL_SECONDS);
 
