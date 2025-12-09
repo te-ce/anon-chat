@@ -1,6 +1,10 @@
+"use client";
+
 import { CreateRoom } from "@/components/createRoom";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
   return (
     <main className="flex h-screen w-screen flex-col items-center justify-center gap-8 p-4">
       <header>
@@ -11,7 +15,7 @@ export default function Home() {
           A private, self-destructing chat room.
         </p>
       </header>
-      <CreateRoom />
+      <CreateRoom router={router} />
     </main>
   );
 }
