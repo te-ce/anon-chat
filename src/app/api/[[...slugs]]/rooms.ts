@@ -10,12 +10,13 @@ export const rooms = new Elysia({ prefix: "/room" })
   .post("/create", async () => {
     const roomId = nanoid();
 
-    await redis.hset(`meta:${roomId}`, {
-      connected: [],
-      createdAt: new Date(),
-    });
-
-    await redis.expire(`meta:${roomId}`, ROOM_TTL_SECONDS);
+    await Promise.all([
+      redis.hset(`meta:${roomId}`, {
+        connected: [],
+        createdAt: new Date(),
+      }),
+      redis.expire(`meta:${roomId}`, ROOM_TTL_SECONDS),
+    ]);
 
     return { roomId };
   })

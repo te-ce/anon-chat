@@ -26,15 +26,14 @@ export const messages = new Elysia({ prefix: "/messages" })
         timestamp: Date.now(),
         roomId,
       };
-
-      await redis.rpush(`messages:${roomId}`, {
-        ...message,
-        token: auth.token,
-      });
-      await realtime.channel(roomId).emit("chat.message", message);
-
       const remaining = await redis.ttl(`meta:${roomId}`);
+
       await Promise.all([
+        redis.rpush(`messages:${roomId}`, {
+          ...message,
+          token: auth.token,
+        }),
+        realtime.channel(roomId).emit("chat.message", message),
         redis.expire(`messages:${roomId}`, remaining),
         redis.expire(`history:${roomId}`, remaining),
         redis.expire(roomId, remaining),
