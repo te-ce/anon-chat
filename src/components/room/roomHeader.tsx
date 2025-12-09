@@ -1,4 +1,5 @@
 import { useRoomStore } from "@/app/store/roomStore";
+import { useDeleteRoom } from "@/hooks/useDeleteRoom";
 import { useGetRemainingTime } from "@/hooks/useGetRemainingTime";
 import { useState } from "react";
 
@@ -12,6 +13,7 @@ export const RoomHeader = () => {
   const roomId = useRoomStore((state) => state.roomId);
   const { timeRemaining } = useGetRemainingTime(roomId);
   const [copyStatus, setCopyStatus] = useState<"copy" | "copied">("copy");
+  const { destroyRoom } = useDeleteRoom();
 
   const copyLink = () => {
     navigator.clipboard.writeText(`${window.location.origin}/room/${roomId}`);
@@ -20,10 +22,6 @@ export const RoomHeader = () => {
     setTimeout(() => {
       setCopyStatus("copy");
     }, 2000);
-  };
-
-  const destroyRoom = () => {
-    // TODO: Implement destroy room
   };
 
   return (
@@ -63,7 +61,7 @@ export const RoomHeader = () => {
       </div>
 
       <button
-        onClick={() => destroyRoom()}
+        onClick={() => destroyRoom(roomId)}
         className="group flex items-center gap-2 rounded bg-zinc-800 px-3 py-1.5 text-xs font-bold text-zinc-400 transition-all hover:bg-red-600 hover:text-white disabled:opacity-50"
       >
         <span className="group-hover:animate-pulse">💣</span>
