@@ -10,6 +10,14 @@ export const RoomInput = () => {
   const roomId = useRoomStore((state) => state.roomId);
   const { username } = useGetUsername();
 
+  const handleSendMessage = () => {
+    if (!input.trim()) return;
+
+    sendMessage({ text: input, roomId, username });
+    setInput("");
+    inputRef.current?.focus();
+  };
+
   return (
     <div className="border-t border-zinc-800 bg-zinc-900/30 p-4">
       <div className="flex gap-4">
@@ -22,9 +30,8 @@ export const RoomInput = () => {
             type="text"
             value={input}
             onKeyDown={(e) => {
-              if (e.key === "Enter" && input.trim()) {
-                sendMessage({ text: input, roomId, username });
-                inputRef.current?.focus();
+              if (e.key === "Enter" && input.trim() && !isPending) {
+                handleSendMessage();
               }
             }}
             placeholder="Type message..."
@@ -34,14 +41,11 @@ export const RoomInput = () => {
         </div>
 
         <button
-          onClick={() => {
-            sendMessage({ text: input, roomId, username });
-            inputRef.current?.focus();
-          }}
-          disabled={!input.trim()}
+          onClick={handleSendMessage}
+          disabled={!input.trim() || isPending}
           className="cursor-pointer bg-zinc-800 px-6 text-sm font-bold text-zinc-400 transition-all hover:text-zinc-200 disabled:cursor-not-allowed disabled:opacity-50"
         >
-          SEND
+          {isPending ? "SENDING..." : "SEND"}
         </button>
       </div>
     </div>
