@@ -15,10 +15,11 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 - Elysia
 - Redis (Upstash)
 - Tanstack Query
+- Zod
 
 # Challenges
 
-- How to create 'realtime' chat functionality?
+- How to handle 'realtime' chat functionality?
 - How to handle deletion of rooms?
 - How to handle permissions for rooms (f.e. max of 2 per room, correct data send)?
 - Typesafe API with Elysia
