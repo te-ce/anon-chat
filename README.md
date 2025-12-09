@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 # Features
 
-[ ] Self-destructing Chat Rooms (per TTL or manually by user)
-[ ] 1:1 limited conversations
-[ ] Redis backend
-[ ] Next frontend
+- [ ] Self-destructing Chat Rooms (per TTL or manually by user)
+- [ ] 1:1 limited conversations
+- [ ] Redis backend
+- [ ] Next frontend
