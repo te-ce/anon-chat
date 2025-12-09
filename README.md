@@ -23,4 +23,5 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 - How to handle 'realtime' chat functionality?
 - How to handle deletion of rooms?
 - How to handle permissions for rooms (f.e. max of 2 per room, correct data send)?
-- Typesafe API with Elysia
+- Typesafe API with Elysia?
+- Understand server and client side components and data handling between them.
