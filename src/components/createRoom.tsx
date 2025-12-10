@@ -8,19 +8,16 @@ export const CreateRoom = () => {
   const { createRoom } = useCreateRoom();
 
   return (
-    <div className="w-full max-w-md border border-zinc-800 bg-zinc-900/50 p-6 backdrop-blur-md">
+    <section className="w-full max-w-md border border-zinc-800 bg-zinc-900/50 p-6 backdrop-blur-md">
       <div className="space-y-5">
-        <div className="space-y-2">
+        <header className="space-y-2">
           <label className="flex items-center text-zinc-500">
             Your Identity
           </label>
-
-          <div className="flex items-center gap-3">
-            <div className="flex-1 border border-zinc-800 bg-zinc-950 p-3 font-mono text-sm text-zinc-400">
-              {username}
-            </div>
+          <div className="flex-1 border border-zinc-800 bg-zinc-950 p-3 font-mono text-sm text-zinc-400">
+            {username}
           </div>
-        </div>
+        </header>
 
         <button
           onClick={() => createRoom()}
@@ -29,6 +26,6 @@ export const CreateRoom = () => {
           CREATE SECURE ROOM
         </button>
       </div>
-    </div>
+    </section>
   );
 };

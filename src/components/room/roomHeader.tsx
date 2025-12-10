@@ -32,14 +32,12 @@ export const RoomHeader = () => {
 
   return (
     <header className="flex flex-col items-center justify-between gap-2 border-b border-zinc-800 bg-zinc-900/30 p-4 md:flex-row">
-      <div className="flex items-center gap-4">
+      <section className="flex items-center gap-4">
         <div className="flex flex-col">
           <span className="text-xs text-zinc-500 uppercase">Room ID</span>
-          <div className="flex items-center gap-2">
-            <span className="truncate font-bold text-green-500">
-              {roomId.slice(0, 10) + "..."}
-            </span>
-          </div>
+          <span className="truncate font-bold text-green-500">
+            {roomId.slice(0, 10) + "..."}
+          </span>
         </div>
         <div className="flex flex-col items-center gap-2">
           <button
@@ -56,8 +54,8 @@ export const RoomHeader = () => {
           </button>
         </div>
         <div className="hidden h-8 w-px bg-zinc-800 md:block" />
-      </div>
-      <div className="flex items-center justify-between gap-2 md:w-full">
+      </section>
+      <section className="flex items-center justify-between gap-2 md:w-full">
         <div className="flex flex-col">
           <span className="text-xs text-zinc-500 uppercase">Self-Destruct</span>
           <span
@@ -81,7 +79,7 @@ export const RoomHeader = () => {
             DESTROY NOW
           </button>
         </div>
-      </div>
+      </section>
     </header>
   );
 };

@@ -23,7 +23,7 @@ export const RoomInput = () => {
   return (
     <div className="border-t border-zinc-800 bg-zinc-900/30 p-4">
       <div className="flex gap-4">
-        <div className="group relative flex-1">
+        <section className="group relative flex-1">
           <span className="absolute top-1/2 left-4 -translate-y-1/2 animate-pulse text-green-500">
             {">"}
           </span>
@@ -40,7 +40,7 @@ export const RoomInput = () => {
             onChange={(e) => setInput(e.target.value)}
             className="w-full border border-zinc-800 bg-black py-3 pr-4 pl-8 text-sm text-zinc-100 transition-colors placeholder:text-zinc-700 focus:border-zinc-700 focus:outline-none"
           />
-        </div>
+        </section>
 
         <button
           onClick={handleSendMessage}
