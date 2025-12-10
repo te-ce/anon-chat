@@ -38,7 +38,7 @@ export const RoomInput = () => {
             }}
             placeholder="Type message..."
             onChange={(e) => setInput(e.target.value)}
-            className="w-full border border-zinc-800 bg-black py-3 pr-4 pl-8 text-sm text-zinc-100 transition-colors placeholder:text-zinc-700 focus:border-zinc-700 focus:outline-none"
+            className="w-full border border-zinc-800 bg-black py-3 pr-4 pl-8 text-base text-zinc-100 transition-colors placeholder:text-zinc-700 focus:border-zinc-700 focus:outline-none"
           />
         </section>
 
