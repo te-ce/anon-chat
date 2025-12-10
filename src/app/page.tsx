@@ -5,7 +5,7 @@ import { Suspense } from "react";
 export default function Home() {
   return (
     <Suspense>
-      <main className="flex h-screen w-screen flex-col items-center justify-center gap-8 p-4">
+      <main className="flex h-dvh w-screen flex-col items-center justify-center gap-8 p-4">
         <ErrorBanner />
         <header>
           <h1 className="text-2xl font-bold tracking-tight text-green-500">

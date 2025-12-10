@@ -13,7 +13,7 @@ const Page = () => {
   setRoomId(roomId);
 
   return (
-    <main className="flex h-screen max-h-screen flex-col overflow-hidden">
+    <main className="flex h-dvh flex-col overflow-hidden">
       <RoomHeader />
       <RoomMessages />
       <RoomInput />
