@@ -9,10 +9,12 @@ export const RoomInput = () => {
   const roomId = useRoomStore((state) => state.roomId);
   const { sendMessage, isPending } = useSendMessage();
   const { username } = useGetUsername();
+  const setShowQrCode = useRoomStore((state) => state.setShowQrCode);
 
   const handleSendMessage = () => {
     if (!input.trim()) return;
 
+    setShowQrCode(false);
     sendMessage({ text: input, roomId, username });
     setInput("");
     inputRef.current?.focus();
