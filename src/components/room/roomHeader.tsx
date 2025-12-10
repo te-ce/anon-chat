@@ -32,7 +32,7 @@ export const RoomHeader = () => {
 
   return (
     <header className="flex flex-col items-center justify-between gap-2 border-b border-zinc-800 bg-zinc-900/30 p-4 md:flex-row">
-      <section className="flex items-center gap-4">
+      <section className="flex w-full items-center justify-between gap-4 md:w-auto">
         <div className="flex flex-col">
           <span className="text-xs text-zinc-500 uppercase">Room ID</span>
           <span className="truncate font-bold text-green-500">
@@ -55,7 +55,7 @@ export const RoomHeader = () => {
         </div>
         <div className="hidden h-8 w-px bg-zinc-800 md:block" />
       </section>
-      <section className="flex items-center justify-between gap-2 md:w-full">
+      <section className="flex w-full items-center justify-between gap-2 md:w-full">
         <div className="flex flex-col">
           <span className="text-xs text-zinc-500 uppercase">Self-Destruct</span>
           <span
