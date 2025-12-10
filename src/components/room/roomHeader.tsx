@@ -11,6 +11,8 @@ const formatTimeRemaining = (seconds: number) => {
 
 export const RoomHeader = () => {
   const [copyStatus, setCopyStatus] = useState<"copy" | "copied">("copy");
+  const showQrCode = useRoomStore((state) => state.showQrCode);
+  const setShowQrCode = useRoomStore((state) => state.setShowQrCode);
   const roomId = useRoomStore((state) => state.roomId);
   const { timeRemaining } = useHandleRemainingTime(roomId);
   const { destroyRoom } = useDeleteRoom();
@@ -22,6 +24,10 @@ export const RoomHeader = () => {
     setTimeout(() => {
       setCopyStatus("copy");
     }, 2000);
+  };
+
+  const toggleQrCode = () => {
+    setShowQrCode(!showQrCode);
   };
 
   return (
@@ -37,7 +43,13 @@ export const RoomHeader = () => {
               onClick={copyLink}
               className="rounded bg-zinc-800 px-2 py-0.5 text-[10px] text-zinc-400 transition-colors hover:bg-zinc-700 hover:text-zinc-200"
             >
-              {copyStatus}
+              {copyStatus} link
+            </button>
+            <button
+              onClick={toggleQrCode}
+              className="rounded bg-zinc-800 px-2 py-0.5 text-[10px] text-zinc-400 transition-colors hover:bg-zinc-700 hover:text-zinc-200"
+            >
+              {showQrCode ? "hide" : "show"} qr
             </button>
           </div>
         </div>
