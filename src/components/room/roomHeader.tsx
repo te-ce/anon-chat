@@ -31,7 +31,7 @@ export const RoomHeader = () => {
   };
 
   return (
-    <header className="flex items-center justify-between border-b border-zinc-800 bg-zinc-900/30 p-4">
+    <header className="flex items-center justify-between gap-2 border-b border-zinc-800 bg-zinc-900/30 p-4">
       <div className="flex items-center gap-4">
         <div className="flex flex-col">
           <span className="text-xs text-zinc-500 uppercase">Room ID</span>
