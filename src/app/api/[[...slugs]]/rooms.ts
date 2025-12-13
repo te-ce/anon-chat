@@ -6,7 +6,7 @@ import z from "zod";
 import { realtime } from "@/lib/realtime";
 import { ROOM_TTL_SECONDS } from "@/app/util/consts";
 
-export const rooms = new Elysia({ prefix: "/room" })
+export const rooms = new Elysia({ prefix: "/rooms" })
   .post("/create", async () => {
     const roomId = nanoid();
 
